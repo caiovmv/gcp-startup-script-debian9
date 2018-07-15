@@ -21,23 +21,6 @@ COMPOSE_VERSION=1.22.0-rc1
 sudo su -
 cd /root||exit 1
 
-if [ ! -f "${PWD}"/firstboot.key ]
- then
-    touch "${PWD}"/firstboot.key
-    firsboot
-else
-    echo "First boot script already been executed" 
-fi
-
-if [ ! -f "${PWD}"/osupdate.key ]
- then
-    exit 0
-else
-    echo "Update main components"
-    osupdate
-    exit 0
-fi
-
 function firsboot {
     # Update, Upgrade & Dist Upgrade
     apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
@@ -94,3 +77,21 @@ function osupdate {
     curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose  
 }
+
+if [ ! -f "${PWD}"/firstboot.key ]
+ then
+    touch "${PWD}"/firstboot.key
+    firsboot
+else
+    echo "First boot script already been executed" 
+fi
+
+if [ ! -f "${PWD}"/osupdate.key ]
+ then
+    exit 0
+else
+    echo "Update main components"
+    osupdate
+    exit 0
+fi
+
