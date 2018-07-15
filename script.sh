@@ -22,7 +22,7 @@ function firstboot {
     apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
     # Install Basic Tools
-    apt-get install -y software-properties-common apt-transport-https ca-certificates ca-certificates curl gnupg2 nmon htop sysstat iptraf-ng wget telnet ftp git lsof iotop vim
+    apt-get install -y software-properties-common apt-transport-https ca-certificates ca-certificates curl gnupg2 nmon htop sysstat iptraf-ng wget telnet ftp git lsof iotop vim jq
 
     # Install Docker Compose (Always verify the latest release)
     curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
