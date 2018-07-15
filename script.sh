@@ -20,7 +20,7 @@ COMPOSE_VERSION=1.22.0-rc1
 # Changing to root to proceed
 cd /root||exit 1
 
-function firsboot {
+function firstboot {
     # Update, Upgrade & Dist Upgrade
     apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
