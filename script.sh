@@ -17,9 +17,6 @@ fi
 # Especify docker-compose version to install on firstboot
 COMPOSE_VERSION=1.22.0-rc1
 
-# Changing to root to proceed
-cd /root||exit 1
-
 function firstboot {
     # Update, Upgrade & Dist Upgrade
     apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
@@ -77,10 +74,14 @@ function osupdate {
     chmod +x /usr/local/bin/docker-compose  
 }
 
+# Changing to root to proceed
+cd /root||exit 1
+
 if [ ! -f "${PWD}"/firstboot.key ]
  then
-    touch "${PWD}"/firstboot.key
+    osupdate
     firstboot
+    touch "${PWD}"/firstboot.key
 else
     echo "firstboot script already been executed" 
 fi
