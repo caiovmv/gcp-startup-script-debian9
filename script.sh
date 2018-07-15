@@ -79,7 +79,6 @@ cd /root||exit 1
 
 if [ ! -f "${PWD}"/firstboot.key ]
  then
-    osupdate
     firstboot
     touch "${PWD}"/firstboot.key
 else
