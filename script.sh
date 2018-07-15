@@ -82,14 +82,14 @@ if [ ! -f "${PWD}"/firstboot.key ]
     touch "${PWD}"/firstboot.key
     firstboot
 else
-    echo "First boot script already been executed" 
+    echo "firstboot script already been executed" 
 fi
 
 if [ ! -f "${PWD}"/osupdate.key ]
  then
     exit 0
 else
-    echo "Update main components"
+    echo "update main components"
     osupdate
     exit 0
 fi
