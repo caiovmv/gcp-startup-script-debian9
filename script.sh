@@ -18,7 +18,6 @@ fi
 COMPOSE_VERSION=1.22.0-rc1
 
 # Changing to root to proceed
-sudo su -
 cd /root||exit 1
 
 function firsboot {
@@ -81,7 +80,7 @@ function osupdate {
 if [ ! -f "${PWD}"/firstboot.key ]
  then
     touch "${PWD}"/firstboot.key
-    firsboot
+    firstboot
 else
     echo "First boot script already been executed" 
 fi
