@@ -15,7 +15,8 @@ gcloud compute instances create "$SERVER_NAME" \
 --maintenance-policy=MIGRATE \
 --restart-on-failure \
 --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
---metadata=dns=gr1d.io,app=pritunl,criticality=low,workload=networking,type=single,purpouse=VPN,docker=no,startup-script='#!/bin/bash
+--metadata=dns=dev.pipeleap.com,app=keycloak,criticality=high,workload=network,type=single,purpouse=IdentityService,docker=yes,startup-script='#!/bin/bash
     sudo su -
     cd /root||exit 1
-    curl -o- https://raw.githubusercontent.com/caiovmv/gcp-startup-script-debian9/master/script.sh | bash'
+    curl -o- https://raw.githubusercontent.com/caiovmv/gcp-startup-script-debian9/master/script.sh | bash
+    curl -o- https://raw.githubusercontent.com/caiovmv/gcp-startup-script-debian9/master/setup-keycloak.sh | bash'
